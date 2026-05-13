@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/hospital-appointment-hub
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  # Mapper XML 文件扫描路径
+  mapper-locations: classpath:/mapper/**/*.xml
+  # PO 包类型别名扫描，XML 中可直接使用类名
+  type-aliases-package: com.hospital.appointmenthub.model.po
+  configuration:
+    # 开启数据库下划线字段到 Java 驼峰属性的自动映射
+    map-underscore-to-camel-case: true
+    # 关闭 MyBatis 二级缓存
+    cache-enabled: false
+
+jwt:
+  # JWT 签名密钥
+  secret: hospital-appointment-hub-secret
+  # JWT 签发者
+  issuer: hospital-appointment-hub
+  # JWT 有效期，单位为毫秒，当前为 7 天
+  expire-time: 604800000
+  # JWT 请求头名称
+  header: Authorization
+  # JWT 请求头中的 Token 前缀
+  token-prefix: "Bearer "
