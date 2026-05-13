@@ -25,7 +25,7 @@ public class FamilyMember {
     private Long id;
 
     /** 所属患者ID */
-    private Integer patientId;
+    private Long patientId;
 
     /** 就诊人姓名 */
     private String name;
@@ -42,11 +42,11 @@ public class FamilyMember {
     /** 出生日期 */
     private LocalDate birthDate;
 
-    /** 与患者关系：本人/配偶/子女/父母/其他 */
-    private String relationship;
+    /** 与患者关系：0-本人/1-配偶/3-子女/4-父母/5-其他 */
+    private Integer relationship;
 
     /** 是否默认就诊人：1-是，0-否 */
-    private Integer isDefault;
+    private Boolean isDefault;
 
     /** 创建时间 */
     @TableField(fill = FieldFill.INSERT)
