@@ -32,12 +32,6 @@ public class Patient {
     /** 加密后的密码 */
     private String password;
 
-    /** 昵称 */
-    private String nickname;
-
-    /** 头像地址 */
-    private String avatar;
-
     /** 账号状态：1-正常，0-禁用 */
     private Integer status;
 

@@ -18,4 +18,7 @@ public interface IPatientService extends IService<Patient> {
 
 
     String loginByEmail(LoginPatientDTO loginPatientDTO);
+
+
+    void logout(Long patientId);
 }

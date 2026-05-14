@@ -38,9 +38,6 @@ public class Doctor {
     /** 医生简介 */
     private String introduction;
 
-    /** 医生照片 */
-    private String avatar;
-
     /** 状态：1-在岗，0-离职 */
     private Integer status;
 

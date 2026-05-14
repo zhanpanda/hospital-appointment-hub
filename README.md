@@ -17,7 +17,7 @@
 ## 技术栈
 
 - 前端：Vue 3 + Vite
-- 后端：Spring Boot 3 + H2
+- 后端：Spring Boot 3 + MyBatis-Plus + MySQL
 
 ## 启动顺序
 
@@ -30,8 +30,16 @@
 - 前端：`5173`
 - 后端：`8080`
 
-## 当前已提供的示例能力
+## 当前前端已对接的能力
 
-- Spring Boot 健康检查接口：`/api/health`
-- Spring Boot 医生列表接口：`/api/doctors`
-- Vue 首页展示后端状态与医生信息
+- 患者手机号 / 邮箱注册：`/api/patient/register/*`
+- 患者手机号 / 邮箱登录：`/api/patient/login/*`
+- 科室列表：`/api/departments`
+- 按科室分页查询医生与医生详情：`/api/doctors`
+- 就诊人新增、编辑、删除、设默认：`/api/family-member`
+
+## 联调说明
+
+- 前端开发服务器已通过 Vite 代理 `/api` 到 `http://localhost:8080`
+- 后端业务接口默认要求携带 `Authorization: Bearer <token>` 请求头
+- 预约记录与排班控制器目前仍未开放具体接口，因此本轮前端未接入这两块

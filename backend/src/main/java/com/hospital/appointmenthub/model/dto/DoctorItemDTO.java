@@ -13,16 +13,16 @@ public class DoctorItemDTO {
 
     private String name;
 
-    private String avatar;
-
     private String title;
+
+    private String specialty;
 
     public static DoctorItemDTO from(Doctor doctor) {
         DoctorItemDTO dto = new DoctorItemDTO();
         dto.setId(doctor.getId());
         dto.setName(doctor.getName());
-        dto.setAvatar(doctor.getAvatar());
         dto.setTitle(doctor.getTitle());
+        dto.setSpecialty(doctor.getSpecialty());
         return dto;
     }
 }

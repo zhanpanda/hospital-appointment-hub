@@ -25,7 +25,7 @@ public class Appointment {
     private Long id;
 
     /** 预约号 */
-    private String appointmentNo;
+    private Long appointmentNo;
 
     /** 患者ID */
     private Long patientId;

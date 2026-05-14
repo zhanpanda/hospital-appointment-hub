@@ -4,6 +4,7 @@ import com.hospital.appointmenthub.common.Result;
 import com.hospital.appointmenthub.model.dto.LoginPatientDTO;
 import com.hospital.appointmenthub.model.dto.RegisterPatientDTO;
 import com.hospital.appointmenthub.service.IPatientService;
+import com.hospital.appointmenthub.util.PatientContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,5 +56,14 @@ public class PatientController {
     public Result<String> loginByEmail(@RequestBody @Validated(LoginPatientDTO.EmailLogin.class) LoginPatientDTO loginPatientDTO) {
         String token = patientService.loginByEmail(loginPatientDTO);
         return Result.success(token);
+    }
+
+    /**
+     * 退出登录
+     */
+    @PostMapping("/logout")
+    public Result<Void> logout() {
+        patientService.logout(PatientContext.getPatientId());
+        return Result.success();
     }
 }

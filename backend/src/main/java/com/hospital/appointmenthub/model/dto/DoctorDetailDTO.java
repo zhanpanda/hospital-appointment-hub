@@ -21,8 +21,6 @@ public class DoctorDetailDTO {
 
     private String introduction;
 
-    private String avatar;
-
     public static DoctorDetailDTO from(Doctor doctor) {
         DoctorDetailDTO dto = new DoctorDetailDTO();
         dto.setId(doctor.getId());
@@ -31,7 +29,6 @@ public class DoctorDetailDTO {
         dto.setTitle(doctor.getTitle());
         dto.setSpecialty(doctor.getSpecialty());
         dto.setIntroduction(doctor.getIntroduction());
-        dto.setAvatar(doctor.getAvatar());
         return dto;
     }
 }

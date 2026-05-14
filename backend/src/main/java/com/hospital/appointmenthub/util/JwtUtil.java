@@ -3,6 +3,7 @@ package com.hospital.appointmenthub.util;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.hospital.appointmenthub.properties.JwtProperties;
 import java.util.Date;
@@ -48,6 +49,18 @@ public class JwtUtil {
      */
     public Long getPatientId(String token) {
         return verifyToken(token).getClaim("patientId").asLong();
+    }
+
+    /**
+     * 不校验签名，直接从 token 中读取患者ID，用于 Redis 预检查
+     */
+    public Long parsePatientId(String token) {
+        String rawToken = token.replace(jwtProperties.getTokenPrefix(), "").trim();
+        try {
+            return JWT.decode(rawToken).getClaim("patientId").asLong();
+        } catch (JWTDecodeException exception) {
+            return null;
+        }
     }
 
     private Algorithm getAlgorithm() {
